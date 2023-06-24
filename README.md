@@ -142,8 +142,8 @@ Az alábbi fegyvertípusokat különböztetjük meg:
 - dobókés (`throwing knife`)
 - gerely (`javelin`)
 
-Készíts egy absztrakt `Weapon` osztályt és származztass le belőle egy `MeleeWeapon` és
-egy `RangedWeapon` osztályt. Minden fegyvernek legyen egy neve (`name`), egy sebzése
+Készíts egy absztrakt `combat.Weapon` osztályt és származztass le belőle egy `combat.MeleeWeapon` és
+egy `combat.RangedWeapon` osztályt. Minden fegyvernek legyen egy neve (`name`), egy sebzése
 (`damage`), egy hatótávolsága (`range`) és lehessen vele támadni (`attack()`)!
 
 A közelharci fegyvereknek alapértelmezetten legyen a hatótávolsága 1!
@@ -157,16 +157,16 @@ Készíts egy `combat` package-et és abba mozgasd át ezeket az osztályokat!
 
 Készíts a `combat` packege-en belül egy `type` package-et, ahol vegyél fel egy
 `MeleeWeaponType` és egy `RangedWeaponType` enumot, töltsd fel a felsorolt értékekkel!
-Legyen a `MeleeWeapon` osztálynak egy `MeleeWeaponType` típusú `type` nevű változója,
+Legyen a `combat.MeleeWeapon` osztálynak egy `MeleeWeaponType` típusú `type` nevű változója,
 majd a távolharci fegyvereknél is oldd meg hasonlóképpen a típus beállítását!
 
 Írj konstruktorokat, próbáld ki a fegyverek léterhozását!
 Ne felejtsd el a `toString()` metódust overrideolni, hogy kiírja az összes adatát!
 
 Minden szereplőnek legyen lehetősége fegyvert birtokolni, ehhez vegyél fel egy `weapons`
-fieldet, ami `Set<Weapon>` típusú (így lehet benne `MeleeWeapon` és `RangedWeapon`
+fieldet, ami `Set<combat.Weapon>` típusú (így lehet benne `combat.MeleeWeapon` és `combat.RangedWeapon`
 típusú fegyvereket is tárolni), alapértelmezett inicializáld egy üres (Hash)Settel!
-Írj hozzá `addWeapon(weapon: Weapon)` és `removeWeapon(weaponName: String)` metódusokat
+Írj hozzá `addWeapon(weapon: combat.Weapon)` és `removeWeapon(weaponName: String)` metódusokat
 és egy gettert!
 
 
@@ -175,12 +175,12 @@ Ha mindent jól csináltál, az alábbi kódsornak működnie kell:
 Character arya = new Noble("Arya", "Winterfell", Gender.FEMALE, Set.of(House.STARK), 30);
 System.out.println(arya.hasWeapons()); // False 
 
-arya.addWeapon(new MeleeWeapon("Valyrian steel dagger", 20, MeleeWeaponType.DAGGER));
-arya.addWeapon(new RangedWeapon("Stolen bow", 10, 40, 5, RangedWeaponType.BOW));
+arya.addWeapon(new combat.MeleeWeapon("Valyrian steel dagger", 20, MeleeWeaponType.DAGGER));
+arya.addWeapon(new combat.RangedWeapon("Stolen bow", 10, 40, 5, RangedWeaponType.BOW));
 
 arya.removeWeapon("Stolen bow");
 
-System.out.println(arya.getWeapons()); // [MeleeWeapon{type=DAGGER, name='Valyrian steel dagger', damage=20, range=1}]
+System.out.println(arya.getWeapons()); // [combat.MeleeWeapon{type=DAGGER, name='Valyrian steel dagger', damage=20, range=1}]
 ```
 
 Az attack() metódusnak, egyelőre nem kell csinálnia semmit (kivéve a lőszer csökkentését, ahol szükséges)!
@@ -259,9 +259,9 @@ Az osztályhierarchia legyen az alábbi:
     - Gender.java
     - House.java
 - combat
-  - MeleeWeapon.java
-  - RangedWeapon.java
-  - Weapon.java
+  - combat.MeleeWeapon.java
+  - combat.RangedWeapon.java
+  - combat.Weapon.java
   - _type_
     - MeleeWeaponType.java
     - RangedWeaponType.java
@@ -273,7 +273,7 @@ Ha kell, rendezd az importokat!
 Implementáljuk karakterek párbaját!
 Vedd fel az alábbi metódust a `Character` osztályba!
 ```
-private void initiateFight(Weapon weapon, Character enemy, FightType fightType) {
+private void initiateFight(combat.Weapon weapon, Character enemy, FightType fightType) {
   String fightTypeName = fightType == FightType.MELEE ? "melee" : "ranged";
   System.out.println(this.getName() + " engages in " + fightTypeName + " combat with " + enemy.getName() + ".");
   weapon.attack(this, enemy);
@@ -283,14 +283,14 @@ A fordító által feldobott hibák alapján módostísd a kódod: vegyél fel e
 `FightType` enumot (`MELEE` illetve `RANGED` értékkel) és módosítsd az `attack()`
 metódus szignatúráját!
 
-Írj egy `public abstract boolean isRanged();` metódust a `Weapon` classba és
+Írj egy `public abstract boolean isRanged();` metódust a `combat.Weapon` classba és
 implementáld a leszármazott osztályokban!
 
 A `Character` osztályba vedd fel még az alábbi metódust:
 ```
 public void fight(Character enemy, FightType fightType) {
     if (this.hasWeapons()) {
-        for (Weapon weapon : this.getWeapons()) {
+        for (combat.Weapon weapon : this.getWeapons()) {
             if ((fightType == FightType.MELEE && !weapon.isRanged()) ||
                     (fightType == FightType.RANGED && weapon.isRanged())) {
                 initiateFight(weapon, enemy, fightType);
