@@ -1,7 +1,7 @@
 public abstract class Character implements Mortal {
-    private String name;
-    private final String birthPlace;
-    private Gender gender;
+    protected String name;
+    protected final String birthPlace;
+    protected Gender gender;
     private int counter = 0;
 
     public void getWorldPopulation(){
