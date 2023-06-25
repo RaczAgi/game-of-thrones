@@ -4,31 +4,30 @@ import combat.type.MeleeWeaponType;
 
 public class MeleeWeapon extends Weapon {
 
-    MeleeWeaponType type;
+
+    protected MeleeWeaponType Type;
     @Override
     public int getRange() {
         return 1;
     }
 
-    public MeleeWeapon(MeleeWeaponType type) {
-        this.type = type;
+    public MeleeWeapon(String name, int damage, MeleeWeaponType Type) {
+        super.name = name;
+        super.damage = damage;
+        this.Type = Type;
     }
 
     public MeleeWeaponType getType() {
-        return type;
-    }
-
-    public void setType(MeleeWeaponType type) {
-        this.type = type;
+        return Type;
     }
 
     @Override
     public String toString() {
         return "MeleeWeapon{" +
-                "type=" + type +
-                ", name='" + name + '\'' +
-                ", damage=" + damage +
-                ", range=" + range +
+                "MeleeWeaponType=" + this.Type +
+                ", name='" + this.name +
+                ", damage=" + super.damage +
+                ", range=" + super.range +
                 '}';
     }
 }

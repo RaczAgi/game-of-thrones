@@ -1,3 +1,4 @@
+import combat.MeleeWeapon;
 import combat.Weapon;
 import combat.type.MeleeWeaponType;
 
@@ -9,7 +10,7 @@ public abstract class Character implements Mortal {
     protected final String birthPlace;
     protected Gender gender;
     private static int wordPopulation = 0;
-    protected Set<Weapon> weapons = HashSet.newHashSet();
+    private Set<Weapon> weapons =  new HashSet<>();
 
 
     public Character(String name, String birthPlace, Gender gender) {
@@ -55,13 +56,17 @@ public abstract class Character implements Mortal {
     public void die() {
         wordPopulation--;
     }
-    public void addWeapon(){
-        getWeapons();
-    }
-    public void removeWeapon(String weaponName){}
+    public Set<Weapon> getWeapons() {return weapons;}
 
-    public Set<Weapon> getWeapons() {
-        return weapons;
+    public void setWeapons(Set<Weapon> weapons) {
+        this.weapons = weapons;
+    }
+
+    public void addWeapon(Weapon weapon){
+        this.weapons.add(weapon);
+    }
+    public void removeWeapon(String name){
+        this.weapons.remove(name);
     }
 
     public boolean hasWeapons(){

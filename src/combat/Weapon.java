@@ -19,12 +19,5 @@ public abstract class Weapon {
         return range;
     }
 
-    @Override
-    public String toString() {
-        return "Weapon{" +
-                "name='" + name + '\'' +
-                ", damage=" + damage +
-                ", range=" + range +
-                '}';
-    }
+
 }
