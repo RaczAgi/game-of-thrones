@@ -13,11 +13,12 @@ public abstract class Character implements Mortal {
     Set<combat.Weapon> weapons =  new HashSet<>();
 
 
-    public Character(String name, String birthPlace, Gender gender) {
+    public Character(String name, String birthPlace, Gender gender, int totalWealth) {
         wordPopulation++;
         this.name = name;
         this.birthPlace = birthPlace;
         this.gender = gender;
+
 
 
     }
@@ -55,10 +56,10 @@ public abstract class Character implements Mortal {
         wordPopulation--;
     }
     public void addWeapon(combat.Weapon weapon){
-        this.weapons.add(weapon);
+        weapons.add(weapon);
     }
     public void removeWeapon(String name){
-        this.weapons.remove(name);
+        weapons.remove(name);
     }
     public Set<Weapon> getWeapons() {
         return weapons;
