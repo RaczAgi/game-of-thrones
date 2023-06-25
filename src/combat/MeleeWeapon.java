@@ -15,6 +15,16 @@ public class MeleeWeapon extends Weapon {
     }
 
     @Override
+    public void attack() {
+
+    }
+
+    @Override
+    public boolean isRanged() {
+        return false;
+    }
+
+    @Override
     public String toString() {
         return "combat.MeleeWeapon{" +
                 "MeleeWeaponType=" + this.Type +

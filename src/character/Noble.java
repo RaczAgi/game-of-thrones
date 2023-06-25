@@ -1,11 +1,18 @@
-import combat.Weapon;
+package character;
+import java.util.Map;
+import java.util.HashMap;
+import java.util.HashSet;
+
+import character.Character;
+import character.type.Gender;
+import character.type.House;
 
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.Map;
 public class Noble extends Character {
-    private Set<House> houses = new HashSet<>();
+    private Set<House> houses = new HashSet<House>();
     Map<String, Integer> coins = new HashMap<>();
     private  int totalWealth = 0;
 
@@ -47,14 +54,14 @@ public class Noble extends Character {
         for (House house : houses) {
             outHouses += house + ",";
         }
-        return outHouses.substring(0,outHouses.length());
+        return outHouses.substring(0,outHouses.length()-1);
     }
 
     @Override
     public String toString() {
 
         return getName() +
-                " of house (s) " + getHousesAsString()+
+                " of house(s) " + getHousesAsString()+
                 " has " + getTotalWealth() + " wealth in copper."; //totalWealth + " gold dragons";
     }
 

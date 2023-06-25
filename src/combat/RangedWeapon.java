@@ -31,6 +31,10 @@ public class RangedWeapon extends Weapon {
     }
 
 
+    @Override
+    public boolean isRanged() {
+        return false;
+    }
 
     @Override
     public String toString() {

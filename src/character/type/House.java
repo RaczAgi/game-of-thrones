@@ -1,3 +1,5 @@
+package character.type;
+
 public enum House {
     STARK ("Közeleg a tél", "Winter is comming", "wolf"),
     LANNISTER ("Halld üvöltésem", "Hear Me Roar", "lion"),

@@ -1,5 +1,9 @@
 package combat;
 
+import character.Character;
+
+import java.util.Calendar;
+
 public abstract class Weapon {
     protected String name;
     protected int damage;
@@ -11,7 +15,7 @@ public abstract class Weapon {
         this.damage = damage;
         this.range = range;
     }
-    public void attack(){}
+    public void attack(Character character, Character enemy){}
 
     public String getName() {
         return name;
@@ -24,6 +28,10 @@ public abstract class Weapon {
     public int getRange() {
         return range;
     }
+
+    public abstract void attack();
+
+    public abstract boolean isRanged();
 
     @Override
     public String toString() {
