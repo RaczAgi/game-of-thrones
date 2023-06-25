@@ -8,7 +8,7 @@ public class GameOfThrones {
 
         System.out.println(Character.getWordPopulation());
 
-      Character arya = new Noble("Arya", "Winterfell", Gender.FEMALE, Set.of(House.STARK), 30);
+      Character arya = new Noble("Arya", "Winterfell", Gender.FEMALE, Set.of(House.STARK));
 
 
         System.out.println(Character.getWordPopulation());

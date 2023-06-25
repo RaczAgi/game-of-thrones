@@ -13,7 +13,7 @@ public abstract class Character implements Mortal {
     Set<combat.Weapon> weapons =  new HashSet<>();
 
 
-    public Character(String name, String birthPlace, Gender gender, int totalWealth) {
+    public Character(String name, String birthPlace, Gender gender) {
         wordPopulation++;
         this.name = name;
         this.birthPlace = birthPlace;
