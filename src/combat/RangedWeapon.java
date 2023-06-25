@@ -11,9 +11,10 @@ public class RangedWeapon extends Weapon {
         ammunition--;
     }
 
-    public RangedWeapon(String name, int damage, int ammunition, RangedWeaponType Type) {
+    public RangedWeapon(String name, int damage,  int range, int ammunition,RangedWeaponType Type) {
         super.name = name;
         super.damage = damage;
+        super.range = range;
         this.ammunition = ammunition;
         this.Type = Type;
 
