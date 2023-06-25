@@ -6,26 +6,19 @@ public class MeleeWeapon extends Weapon {
 
 
     protected MeleeWeaponType Type;
-    @Override
-    public int getRange() {
-        return 1;
-    }
+
+
 
     public MeleeWeapon(String name, int damage, MeleeWeaponType Type) {
-        super.name = name;
-        super.damage = damage;
+        super(name, damage, 1);
         this.Type = Type;
-    }
-
-    public MeleeWeaponType getType() {
-        return Type;
     }
 
     @Override
     public String toString() {
-        return "MeleeWeapon{" +
+        return "combat.MeleeWeapon{" +
                 "MeleeWeaponType=" + this.Type +
-                ", name='" + this.name +
+                ", name='" + super.name +
                 ", damage=" + super.damage +
                 ", range=" + super.range +
                 '}';

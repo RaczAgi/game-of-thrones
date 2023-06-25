@@ -10,7 +10,7 @@ public abstract class Character implements Mortal {
     protected final String birthPlace;
     protected Gender gender;
     private static int wordPopulation = 0;
-    private Set<Weapon> weapons =  new HashSet<>();
+    Set<combat.Weapon> weapons =  new HashSet<>();
 
 
     public Character(String name, String birthPlace, Gender gender) {
@@ -25,13 +25,11 @@ public abstract class Character implements Mortal {
     public String getName() {
         return name;
     }
-
-    public String getBirthPlace() {
-        return birthPlace;
-    }
-
     public void setName(String name) {
         this.name = name;
+    }
+    public String getBirthPlace() {
+        return birthPlace;
     }
 
     public Gender getGender() {
@@ -56,21 +54,18 @@ public abstract class Character implements Mortal {
     public void die() {
         wordPopulation--;
     }
-    public Set<Weapon> getWeapons() {return weapons;}
-
-    public void setWeapons(Set<Weapon> weapons) {
-        this.weapons = weapons;
-    }
-
-    public void addWeapon(Weapon weapon){
+    public void addWeapon(combat.Weapon weapon){
         this.weapons.add(weapon);
     }
     public void removeWeapon(String name){
         this.weapons.remove(name);
     }
+    public Set<Weapon> getWeapons() {
+        return weapons;
+    }
 
     public boolean hasWeapons(){
-        return false;}
+        return weapons.size() > 0;}
 
 
 }

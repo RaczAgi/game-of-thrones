@@ -12,9 +12,7 @@ public class RangedWeapon extends Weapon {
     }
 
     public RangedWeapon(String name, int damage,  int range, int ammunition,RangedWeaponType Type) {
-        super.name = name;
-        super.damage = damage;
-        super.range = range;
+        super(name, damage, range);
         this.ammunition = ammunition;
         this.Type = Type;
 
@@ -32,9 +30,7 @@ public class RangedWeapon extends Weapon {
         this.Type = Type;
     }
 
-    public void setAmmunition(int ammunition) {
-        this.ammunition = ammunition;
-    }
+
 
     @Override
     public String toString() {
